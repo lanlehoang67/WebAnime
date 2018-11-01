@@ -1,0 +1,35 @@
+﻿@using WebAnime.Models
+@model List<Anime>
+
+
+
+@foreach (var item in Model)
+{
+
+	
+<div class="container2">
+	<div class="anime">
+		<div class="row justify-content-center">
+			<div class="content2">
+				<a href="@Url.Action("XemAnime", new { @maPhim = item.MaPhim, @tap = 1 })" target="_blank">
+					<div class="col-xl-6" id="anime"><div class="content2-overlay"></div></div>
+					<img class="content2-image" id="anhbia3" src="@Url.Content("~/AnimeDB/" + item.AnhBia)">
+					<div class="content2-details fadeIn-top">
+						<h3 style="color:snow">@item.TenPhim</h3>
+
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+		}
+	
+
+
+
+
+
+
+

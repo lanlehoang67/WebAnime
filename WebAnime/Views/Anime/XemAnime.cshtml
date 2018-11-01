@@ -1,0 +1,37 @@
+﻿@using WebAnime.Models
+@model Anime
+	@{
+		ViewBag.Title = "XemAnime";
+		Layout = "~/Views/Layout/XemPhimLayout.cshtml";
+
+	}
+<h1 class="tenphim">Xem phim: @Model.TenPhim tập @ViewBag.Tap</h1>
+	<div class="trinhxemanime"><iframe width="800" height="600" src=@Url.Content(ViewBag.Link) frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+	<div class="col-4 offset-8" style="color:darkmagenta" id="MoTa">@Model.MoTa</div>
+	<div class="episodes col-lg-12 col-md-12 col-sm-12">
+
+		<div class="buttons">
+			<div style="color:white">
+				Tập:
+				@for (int i = 1; i <= ViewBag.SoTap; i++)
+	{
+			<a id="buttonTap" class="btnTap" href="@Url.Action("XemAnime", new { @maPhim = ViewBag.MaPhim, @tap = @i })">@i</a>
+
+
+
+}
+				
+
+			</div>
+		</div>
+		
+	</div>
+	<script>
+		$('.btnTap').click(function () {
+			$(this).addClass('doimau');
+			localStorage.setItem('clicked', '1');
+		});
+		if (localStorage.getItem("clicked") != null) {
+			$('.btnTap').addClass('doimau');
+		}
+	</script>

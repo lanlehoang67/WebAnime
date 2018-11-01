@@ -1,0 +1,49 @@
+﻿<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link href="~/CSS/CssForSearchBar.css" rel="stylesheet" />
+<div>
+
+	<input class="form-control" id="searchInput" type="text" placeholder="Tìm kiếm anime tại đây"/>
+	
+	
+
+</div>
+<script type="text/javascript">
+	
+	$("#searchInput").autocomplete({
+		source: function (request, response) {
+			$.ajax({
+				url: '@Url.Action("GetSearchValue","Anime")',
+				method: 'post',
+				dataType: "json",
+				data: { search: $("#searchInput").val() },
+				success: function (data) {
+					//response($.map(data, function (item) {
+					//	return { label: item.TenPhim, value: item.TenPhim };
+					response(data);
+				}
+
+
+			});
+		}
+	})
+
+			.autocomplete('instance')._renderItem = function (ul, item) {
+				return $('<li>')
+					.append('<div id="result_box" style="display: block;">')
+					.append('<img src="' + '/AnimeDB/' + item.AnhBia+'"' +'height="70" width="65"'+ 'alt=' + item.TenPhim + '/>')
+					.append('<strong style="bottom:20px">' + item.TenPhim + '</strong>')
+					.append('<p style="margin-left:65px;bottom:30px; white-space: nowrap;width: 400px;overflow: hidden;text-overflow: ellipsis;" >' + item.MoTa + '</p>')
+					.append('</div>')
+					.appendTo(ul);
+				
+		}
+			
+
+
+   
+
+	
+	
+</script>

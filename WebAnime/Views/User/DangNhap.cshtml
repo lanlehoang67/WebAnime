@@ -1,0 +1,18 @@
+﻿<link href="~/CSS/GiaoDienNguoiDungCSS.css" rel="stylesheet" />
+@{
+	ViewBag.Title = "DangNhap";
+	Layout = "~/Views/Layout/GiaoDienNguoiDungLayout.cshtml";
+}
+<div class="col-4 offset-4" style="font-size:larger" id="Announce">@ViewBag.ThongBao</div>
+@using (Html.BeginForm())
+{
+
+<div class="offset-4" id="title">Anime69.com</div>
+<div class="col-4 offset-3" id="labelDN">Đăng Nhập:</div>
+<input class="form-control text-box single-line col-4 offset-4 " id="TaiKhoan2" name="TaiKhoan" type="text" />
+<div class="col-4 offset-3" id="labelMK">Mật Khẩu:</div>
+<input class="form-control text-box single-line col-4 offset-4 " id="MatKhau2" name="MatKhau" type="text" />
+
+		<button type="submit" class="btn btn-primary col-2 offset-4" id="login" value="Đăng nhập">Đăng nhập</button>
+		<button type="button" class="btn btn-primary col-2 offset-6" id="forgotpass" value="Quên mật khẩu">Quên mật khẩu?</button>
+}

@@ -1,0 +1,142 @@
+﻿body {
+	background-color:lightslategrey;
+}
+#labelDN {
+	position: absolute;
+	top: 10.15em;
+	left: 0;
+	font-style:oblique;
+	font-family:'Times New Roman';
+	font-size:larger;
+}
+	#TaiKhoan2{
+	position: absolute;
+	top: 12em;
+	left: 0;
+
+}
+#labelMK {
+	position: absolute;
+	top: 20.3em;
+	left: 0;
+	font-style: oblique;
+	font-family: 'Times New Roman';
+	font-size: larger;
+}
+.btnDX {
+	background-color: cornflowerblue;
+	border: none;
+	color: white;
+	padding: 15px 16px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-flex;
+	font-size: 16px;
+	margin: 4px 10px;
+	cursor: pointer;
+	position: absolute;
+	top: 1%;
+	bottom: 0;
+	left: 90%;
+}
+
+#MatKhau2 {
+	position: absolute;
+	top: 24em;
+	left: 0;
+}
+#login {
+	position: absolute;
+	
+	top: 35em;
+	left: 0;
+}
+#forgotpass {
+	background-color:gray;
+	position: absolute;
+	top: 35em;
+	left: 0;
+}
+#title {
+	position: absolute;
+	left:0.2em;
+	top: 0;
+	font-size: 80px;
+}
+#Announce {
+	position: absolute;
+	left: 0.2em;
+	top: 25em;
+	font-size: 80px;
+}
+.btnDN {
+	background-color: cornflowerblue;
+	border: none;
+	color: white;
+	padding: 5px 16px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-flex;
+	font-size: 16px;
+	margin: 4px 10px;
+	margin-right: 0;
+	cursor: pointer;
+	position: absolute;
+	top: 1%;
+	bottom: 1px;
+	left: 80%;
+}
+
+#avatar {
+	margin-top: 7px;
+}
+
+#username {
+	margin-top: 7px;
+}
+
+.btnDX {
+	background-color: cornflowerblue;
+	border: none;
+	color: white;
+	padding: 5px 16px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-flex;
+	font-size: 16px;
+	margin: 4px 10px;
+	cursor: pointer;
+	position: absolute;
+	top: 1%;
+	bottom: 1px;
+	left: 90%;
+}
+
+.btnDK {
+	background-color: cornflowerblue;
+	border: none;
+	color: white;
+	padding: 5px 16px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-flex;
+	font-size: 16px;
+	margin: 4px 10px;
+	margin-left: 0;
+	cursor: pointer;
+	position: absolute;
+	top: 1%;
+	bottom: 1px;
+	left: 90%;
+}
+
+.trangchux {
+	margin-right: 0px;
+}
+
+.genres {
+	margin-right: 50px;
+}
+
+
+

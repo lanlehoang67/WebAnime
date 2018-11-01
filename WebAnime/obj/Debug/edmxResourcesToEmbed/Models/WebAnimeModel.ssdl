@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebAnimeDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Anime">
+    <Key>
+      <PropertyRef Name="MaPhim" />
+    </Key>
+    <Property Name="MaPhim" Type="int" Nullable="false" />
+    <Property Name="TenPhim" Type="nvarchar" MaxLength="50" />
+    <Property Name="AnhBia" Type="nvarchar(max)" />
+    <Property Name="MoTa" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ChuDe">
+    <Key>
+      <PropertyRef Name="MaChuDe" />
+    </Key>
+    <Property Name="MaChuDe" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenChuDe" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Co">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaPhim" Type="int" />
+    <Property Name="Tap" Type="int" />
+    <Property Name="Link" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Gom">
+    <Key>
+      <PropertyRef Name="MaPhim" />
+      <PropertyRef Name="MaChuDe" />
+    </Key>
+    <Property Name="MaPhim" Type="int" Nullable="false" />
+    <Property Name="MaChuDe" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NguoiDung">
+    <Key>
+      <PropertyRef Name="TaiKhoan" />
+    </Key>
+    <Property Name="TaiKhoan" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="50" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+    <Property Name="GioiTinh" Type="bit" />
+    <Property Name="DienThoai" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiaChi" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Co_Anime">
+    <End Role="Anime" Type="Self.Anime" Multiplicity="0..1" />
+    <End Role="Co" Type="Self.Co" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Anime">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="Co">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gom_Anime">
+    <End Role="Anime" Type="Self.Anime" Multiplicity="1" />
+    <End Role="Gom" Type="Self.Gom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Anime">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="Gom">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gom_ChuDe">
+    <End Role="ChuDe" Type="Self.ChuDe" Multiplicity="1" />
+    <End Role="Gom" Type="Self.Gom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChuDe">
+        <PropertyRef Name="MaChuDe" />
+      </Principal>
+      <Dependent Role="Gom">
+        <PropertyRef Name="MaChuDe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WebAnimeDBModelStoreContainer">
+    <EntitySet Name="Anime" EntityType="Self.Anime" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChuDe" EntityType="Self.ChuDe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Co" EntityType="Self.Co" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gom" EntityType="Self.Gom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Co_Anime" Association="Self.FK_Co_Anime">
+      <End Role="Anime" EntitySet="Anime" />
+      <End Role="Co" EntitySet="Co" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gom_Anime" Association="Self.FK_Gom_Anime">
+      <End Role="Anime" EntitySet="Anime" />
+      <End Role="Gom" EntitySet="Gom" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gom_ChuDe" Association="Self.FK_Gom_ChuDe">
+      <End Role="ChuDe" EntitySet="ChuDe" />
+      <End Role="Gom" EntitySet="Gom" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebAnimeDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Anime">
+    <Key>
+      <PropertyRef Name="MaPhim" />
+    </Key>
+    <Property Name="MaPhim" Type="Int32" Nullable="false" />
+    <Property Name="TenPhim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AnhBia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Coes" Relationship="Self.FK_Co_Anime" FromRole="Anime" ToRole="Co" />
+    <NavigationProperty Name="ChuDes" Relationship="Self.Gom" FromRole="Anime" ToRole="ChuDe" />
+  </EntityType>
+  <EntityType Name="ChuDe">
+    <Key>
+      <PropertyRef Name="MaChuDe" />
+    </Key>
+    <Property Name="MaChuDe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenChuDe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Animes" Relationship="Self.Gom" FromRole="ChuDe" ToRole="Anime" />
+  </EntityType>
+  <EntityType Name="Co">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaPhim" Type="Int32" />
+    <Property Name="Tap" Type="Int32" />
+    <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Anime" Relationship="Self.FK_Co_Anime" FromRole="Co" ToRole="Anime" />
+  </EntityType>
+  <EntityType Name="NguoiDung">
+    <Key>
+      <PropertyRef Name="TaiKhoan" />
+    </Key>
+    <Property Name="TaiKhoan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="DienThoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Co_Anime">
+    <End Role="Anime" Type="Self.Anime" Multiplicity="0..1" />
+    <End Role="Co" Type="Self.Co" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Anime">
+        <PropertyRef Name="MaPhim" />
+      </Principal>
+      <Dependent Role="Co">
+        <PropertyRef Name="MaPhim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Gom">
+    <End Role="Anime" Type="Self.Anime" Multiplicity="*" />
+    <End Role="ChuDe" Type="Self.ChuDe" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="WebAnimeDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Animes" EntityType="Self.Anime" />
+    <EntitySet Name="ChuDes" EntityType="Self.ChuDe" />
+    <EntitySet Name="Coes" EntityType="Self.Co" />
+    <EntitySet Name="NguoiDungs" EntityType="Self.NguoiDung" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_Co_Anime" Association="Self.FK_Co_Anime">
+      <End Role="Anime" EntitySet="Animes" />
+      <End Role="Co" EntitySet="Coes" />
+    </AssociationSet>
+    <AssociationSet Name="Gom" Association="Self.Gom">
+      <End Role="Anime" EntitySet="Animes" />
+      <End Role="ChuDe" EntitySet="ChuDes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

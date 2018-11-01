@@ -1,0 +1,171 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Anime69</title>
+	<!-- Bootstrap core CSS -->
+	<link href="~/startbootstrap-modern-business-gh-pages/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<!-- Custom styles for this template -->
+	<link href="~/CSS/UserLayOutCss.css" rel="stylesheet" />
+	<link href="~/startbootstrap-modern-business-gh-pages/css/modern-business.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+	<title>jQuery UI Autocomplete - Default functionality</title>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+	<!-- Navigation -->
+	
+	<div id="fb-root"></div>
+	<script>
+(function (d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.1';
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="@Url.Action("TrangChu")">Anime69.com</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div>@Html.Action("TimKiemAnimePartial", "Anime")</div>
+			<a href="#"><i class="fas fa-search" style="color:white;margin-left:20px"></i></a>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<div class="trangchux"><a class="nav-link" style="color:white" href="@Url.Action("TrangChu")">Trang chủ</a></div>
+					</li>
+					<li class="nav-item dropdown">
+						<div class="genres">
+							<a class="nav-link dropdown-toggle" style="color:white" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Thể loại
+							</a>
+
+
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+								@Html.Action("ChuDePartial", "ChuDe")
+							</div>
+						</div>
+					</li>
+
+					@{ if (ViewBag.TaiKhoan == null)
+				{
+
+
+
+
+					<li><div id="buttonDN"><button onclick="location.href='@Url.Action("DangNhap", "User")'" type="button" class="btnDN" style="right:20px;">Đăng Nhập</button></div></li>
+					<li><div id="buttonDN"><button onclick="location.href='@Url.Action("DangKy", "User")'" type="button" class="btnDK" style="margin-left:0px">Đăng Ký</button></div> </li>
+		}
+		else
+		{
+			<li><div class="offset-lg-11" id="avatar"><i class="fas fa-user" style="color:white"></i></div></li>
+
+			<li><div style="color:white" class="tentaikhoan2 offset-4" id="username">@ViewBag.TaiKhoan</div></li>
+			<li><div id="buttonDX"><button onclick="location.href='@Url.Action("DangXuat", "User")'" type="button" class="btnDX ">Đăng xuất</button></div></li>
+} }
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<header>
+		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner" role="listbox">
+				<!-- Slide One - Set the background image for this slide in the line below -->
+				<div class="carousel-item active" style="background-image: url('https://brand.campaign.adidas.com/Images/originals-fw18-dragonball-mh-d-v1_tcm66-283071.jpg?locale=en_US&device=mobile&version=6')">
+					<div class="carousel-caption d-none d-md-block">
+						<h3>Dragon Ball Z</h3>
+						<p>Son Goku và 7 viên ngọc rồng</p>
+					</div>
+				</div>
+				<!-- Slide Two - Set the background image for this slide in the line below -->
+				<div class="carousel-item" style="background-image: url('https://derf9v1xhwwx1.cloudfront.net/image/upload/c_fill,q_60,h_750,w_1920/oth/FunimationStoreFront/1724511/English/1724511_English_ShowDetailHeaderDesktop_fda2e16e-ad96-e811-8175-020165574d09.jpg')">
+					<div class="carousel-caption d-none d-md-block">
+						<h3>Darling in the Franxx</h3>
+						<p>Darling...</p>
+					</div>
+				</div>
+				<!-- Slide Three - Set the background image for this slide in the line below -->
+				<div class="carousel-item" style="background-image: url('https://i.ytimg.com/vi/btjkjcTZUUE/maxresdefault.jpg')">
+					<div class="carousel-caption d-none d-md-block">
+						<h3 style="color:blue">Sword Art Online : Alicization</h3>
+						<p style="color:blue">Hành trình của Kirito ở Underworld</p>
+					</div>
+				</div>
+			</div>
+			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	</header>
+	<!-- Page Content -->
+	<!-- /.row -->
+	<!-- Portfolio Section -->
+	<h2 class="title">Danh sách Anime mới nhất</h2>
+	<div class="container">
+		<div class="group-tabs">
+			<ul class="nav nav-tabs">
+				<li class="active"><div class="col-lg-2 "><a class="tabAll" href="#">Tất cả</a></div></li>
+				<li><div class="col-lg-2 offset-1"><a class="tabNow" href="#">Mùa này</a></div></li>
+				<li><div class="col-lg-2 offset-1"><a class="tabPrev" href="#">Mùa trước</a></div></li>
+				<li><div class="col-lg-2"><a class="tabOld" href="#">Bộ cũ</a></div></li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+
+		@Html.Action("AnimeMoiPartial", "Anime")
+
+	</div>
+	<!-- /.row -->
+	<!-- Features Section -->
+	<div class="row">
+		<div class="col-12">
+			<h2 class="titlexemnhieu" style="color:white">Xem nhiều</h2>
+
+
+
+		</div>
+		<!-- /.row -->
+		<!-- Call to Action Section -->
+
+		@Html.Action("XemNhieuPartial", "Anime")
+	</div>
+
+	<!-- /.container -->
+	<!-- Footer -->
+	<footer class="py-5 bg-dark">
+		<div class="container" >
+			<p class="m-0 text-center text-white" >Copyright &copy; By Lê Hoàng Lân</p>
+		</div>
+		<!-- /.container -->
+	</footer>
+	<!-- Bootstrap core JavaScript -->
+
+	<script src="~/startbootstrap-modern-business-gh-pages/vendor/jquery/jquery.min.js"></script>
+
+	<script src="~/startbootstrap-modern-business-gh-pages/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+@RenderBody()
+</html>

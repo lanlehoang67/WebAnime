@@ -1,0 +1,9 @@
+﻿@using WebAnime.Models;
+@model List<ChuDe>
+
+@{int i = 0;}
+@foreach (var item in Model)
+{
+	i++;
+<div class="genres"><a class="dropdown-item" href="@Url.Action("XemChuDe",new { @maChuDe=item.MaChuDe})">@item.TenChuDe</a></div>
+}

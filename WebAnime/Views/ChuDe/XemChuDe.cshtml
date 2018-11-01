@@ -1,0 +1,30 @@
+﻿@using WebAnime.Models
+@model List<Anime>
+@{
+	ViewBag.Title = "ChuDe";
+	Layout = "~/Views/Layout/ChuDeLayout.cshtml";
+}
+<link href="~/CSS/hover.css" rel="stylesheet" />
+<h1 style="color:white">Các Anime thuộc thể loại @ViewBag.ChuDe gồm :</h1>
+@foreach (var item in Model)
+{
+	<div class="container2">
+		<div class="anime">
+			<div class="row justify-content-center">
+				<div class="content2">
+					<a href="@Url.Action("XemAnime","Anime", new { @maPhim = item.MaPhim, @tap = 1 })" target="_blank">
+						<div class="col-xl-6" id="anime"><div class="content2-overlay"></div></div>
+						<img class="content2-image" src="@Url.Content("~/AnimeDB/" + item.AnhBia)">
+						<div class="content2-details fadeIn-top">
+							<h3 style="color:snow">@item.TenPhim</h3>
+
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+}
+
+
